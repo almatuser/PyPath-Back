@@ -4,6 +4,7 @@ import time
 import unittest
 from http.client import HTTPConnection
 from http.server import ThreadingHTTPServer
+from json import JSONDecodeError
 
 import backend
 
@@ -34,7 +35,11 @@ class BackendAPITestCase(unittest.TestCase):
         res = conn.getresponse()
         raw = res.read().decode("utf-8")
         conn.close()
-        return res.status, json.loads(raw)
+        try:
+            parsed = json.loads(raw) if raw else {}
+        except JSONDecodeError:
+            parsed = {}
+        return res.status, parsed
 
     def test_get_course_by_id(self):
         status, payload = self.request("GET", "/courses/1")
@@ -53,7 +58,9 @@ class BackendAPITestCase(unittest.TestCase):
         self.assertIn("content", payload["error"])
 
     def test_submit_mission(self):
-        mission_id = backend.DATA["missions"][0]["id"]
+        status, missions = self.request("GET", "/missions")
+        self.assertEqual(status, 200)
+        mission_id = missions[0]["id"]
         status, payload = self.request("POST", f"/missions/{mission_id}/submit", {"code": "print('ok')"})
         self.assertEqual(status, 200)
         self.assertTrue(payload["success"])

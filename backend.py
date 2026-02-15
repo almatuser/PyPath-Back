@@ -1,4 +1,5 @@
 import json
+from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -7,8 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / "db.json"
 SWAGGER_PATH = BASE_DIR / "swagger.json"
 
-with DB_PATH.open(encoding="utf-8") as db_file:
-    DATA = json.load(db_file)
+try:
+    with DB_PATH.open(encoding="utf-8") as db_file:
+        DATA = json.load(db_file)
+except (OSError, json.JSONDecodeError) as exc:
+    raise RuntimeError(f"Failed to load DB data from {DB_PATH}") from exc
 
 
 def _json_response(handler: BaseHTTPRequestHandler, status: int, payload):
@@ -123,7 +127,7 @@ class PyPathHandler(BaseHTTPRequestHandler):
                     "avatar": DATA["currentUser"].get("avatar"),
                     "level": DATA["currentUser"].get("levelNum", 1),
                 },
-                "time": "только что",
+                "time": datetime.now(timezone.utc).isoformat(),
                 "content": content,
                 "code": payload.get("code"),
                 "tags": payload.get("tags", []),
@@ -162,21 +166,21 @@ class PyPathHandler(BaseHTTPRequestHandler):
                 200,
                 {
                     "success": True,
-                    "message": "Решение отправлено успешно",
+                    "message": "Solution submitted successfully",
                     "xpEarned": mission.get("xpReward", 0),
                 },
             )
 
         return self._not_found()
 
-    def _get_by_id(self, bucket: str, raw_id: str, parse_int: bool):
+    def _get_by_id(self, data_key: str, item_id: str, parse_int: bool):
         if parse_int:
             try:
-                raw_id = int(raw_id)
+                item_id = int(item_id)
             except ValueError:
                 return self._not_found()
 
-        item = next((value for value in DATA[bucket] if value.get("id") == raw_id), None)
+        item = next((value for value in DATA[data_key] if value.get("id") == item_id), None)
         if item is None:
             return self._not_found()
         return _json_response(self, 200, item)
@@ -184,7 +188,7 @@ class PyPathHandler(BaseHTTPRequestHandler):
     def _not_found(self):
         return _json_response(self, 404, {"error": "Not found"})
 
-    def log_message(self, format, *args):
+    def log_message(self, msg_format, *args):
         return
 
 

@@ -1,11 +1,11 @@
 # PyPath-Back
 
-Python backend для Swagger API находится в `/home/runner/work/PyPath-Back/PyPath-Back/backend.py`.
+Python backend для Swagger API находится в `backend.py`.
 
 ## Запуск
 
 ```bash
-cd /home/runner/work/PyPath-Back/PyPath-Back
+cd <project-root>
 python backend.py
 ```
 
