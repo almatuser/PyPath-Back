@@ -1,0 +1,702 @@
+{
+  "currentUser": {
+    "id": "u_1337",
+    "name": "Neo_Coder",
+    "email": "neo@matrix.com",
+    "fullName": "Thomas Anderson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
+    "bio": "Код — это поэзия, написанная логикой. Взламываю реальность по одной строке за раз.",
+    "level": "Кибер-ниндзя",
+    "levelNum": 5,
+    "xp": 450,
+    "maxXp": 1000,
+    "streak": 12,
+    "rank": 42,
+    "league": "Diamond",
+    "settings": {
+      "theme": "dark",
+      "notifications": true,
+      "sound": true
+    }
+  },
+  "stats": {
+    "totalXp": 12450,
+    "problemsSolved": 42,
+    "codingHours": 14.5,
+    "accuracy": 92
+  },
+  "activity": [
+    { "day": "Пн", "xp": 400 },
+    { "day": "Вт", "xp": 300 },
+    { "day": "Ср", "xp": 200 },
+    { "day": "Чт", "xp": 780 },
+    { "day": "Пт", "xp": 450 },
+    { "day": "Сб", "xp": 900 },
+    { "day": "Вс", "xp": 120 }
+  ],
+  "skills": [
+    { "subject": "Алгоритмы", "score": 120, "fullMark": 150 },
+    { "subject": "Логика", "score": 98, "fullMark": 150 },
+    { "subject": "Python", "score": 86, "fullMark": 150 },
+    { "subject": "Скорость", "score": 99, "fullMark": 150 },
+    { "subject": "Команда", "score": 85, "fullMark": 150 },
+    { "subject": "Архитектура", "score": 65, "fullMark": 150 }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Глава 1: Взлом Терминала",
+      "description": "Система защиты ослабла. Инициализируй переменные, чтобы получить доступ к ядру.",
+      "progress": 100,
+      "totalLessons": 5,
+      "icon": "Terminal",
+      "color": "text-arcade-success",
+      "difficulty": "Вводная",
+      "stars": 3,
+      "isBoss": false,
+      "locked": false
+    },
+    {
+      "id": 2,
+      "title": "Глава 2: Развилка Судьбы",
+      "description": "Шлюз требует пароль. Используй условные операторы (if/else), чтобы обойти брандмауэр.",
+      "progress": 100,
+      "totalLessons": 8,
+      "icon": "Key",
+      "color": "text-arcade-action",
+      "difficulty": "Легко",
+      "stars": 2,
+      "isBoss": false,
+      "locked": false
+    },
+    {
+      "id": 3,
+      "title": "Глава 3: Петля Времени",
+      "description": "Ты попал в ловушку. Используй циклы (Loops), чтобы автоматизировать выход.",
+      "progress": 45,
+      "totalLessons": 10,
+      "icon": "Ghost",
+      "color": "text-purple-400",
+      "difficulty": "Средне",
+      "stars": 1,
+      "isBoss": false,
+      "locked": false
+    },
+    {
+      "id": 4,
+      "title": "Глава 4: Хранилище Данных",
+      "description": "Массивы данных повреждены. Структурируй списки, чтобы восстановить память.",
+      "progress": 0,
+      "totalLessons": 12,
+      "icon": "Database",
+      "color": "text-blue-400",
+      "difficulty": "Средне",
+      "stars": 0,
+      "isBoss": false,
+      "locked": true
+    },
+    {
+      "id": 5,
+      "title": "БОСС: Спагетти-Монстр",
+      "description": "Код запутан! Проведи рефакторинг с помощью Функций, чтобы победить хаос.",
+      "progress": 0,
+      "totalLessons": 1,
+      "icon": "Skull",
+      "color": "text-red-500",
+      "difficulty": "Босс",
+      "stars": 0,
+      "isBoss": true,
+      "locked": true
+    },
+    {
+      "id": 6,
+      "title": "Глава 6: Секретные Ключи",
+      "description": "Словари и Хэш-таблицы. Найди значение по ключу.",
+      "progress": 0,
+      "totalLessons": 15,
+      "icon": "ShieldAlert",
+      "color": "text-yellow-400",
+      "difficulty": "Сложно",
+      "stars": 0,
+      "isBoss": false,
+      "locked": true
+    },
+    {
+      "id": 7,
+      "title": "Глава 7: Цитадель ООП",
+      "description": "Создай свою армию объектов. Классы и наследование.",
+      "progress": 0,
+      "totalLessons": 20,
+      "icon": "Box",
+      "color": "text-indigo-400",
+      "difficulty": "Сложно",
+      "stars": 0,
+      "isBoss": false,
+      "locked": true
+    },
+    {
+      "id": 8,
+      "title": "ФИНАЛ: Пробуждение ИИ",
+      "description": "Напиши нейросеть для финальной битвы.",
+      "progress": 0,
+      "totalLessons": 25,
+      "icon": "Cpu",
+      "color": "text-arcade-mentor",
+      "difficulty": "Легенда",
+      "stars": 0,
+      "isBoss": true,
+      "locked": true
+    }
+  ],
+  "leaderboard": [
+    { "rank": 1, "name": "CyberNinja", "xp": 45200, "level": 42, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix", "streak": 150, "change": "up", "changeAmount": 2, "league": "Diamond", "title": "Гроза Циклов", "tier": "diamond", "isFriend": true, "isSchool": true },
+    { "rank": 2, "name": "Pythonista", "xp": 44100, "level": 40, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka", "streak": 89, "change": "up", "changeAmount": 1, "league": "Platinum", "title": "Мастер Функций", "tier": "platinum", "isSchool": true },
+    { "rank": 3, "name": "CodeMaster", "xp": 42500, "level": 38, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Jude", "streak": 45, "change": "down", "changeAmount": 1, "league": "Gold", "title": "Баг-Хантер", "tier": "gold", "isFriend": true },
+    { "rank": 4, "name": "DevOps_King", "xp": 38000, "level": 35, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Kyle", "streak": 12, "change": "same", "league": "Gold", "title": "Архитектор", "tier": "gold", "isSchool": true },
+    { "rank": 5, "name": "AlgoQueen", "xp": 36500, "level": 34, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Zoe", "streak": 30, "change": "up", "changeAmount": 5, "league": "Silver", "title": "Алгоритмик", "tier": "silver", "isFriend": true, "isSchool": true },
+    { "rank": 6, "name": "BugHunter", "xp": 34200, "level": 32, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Max", "streak": 5, "change": "down", "changeAmount": 2, "league": "Silver", "title": "Тестировщик", "tier": "silver", "isFriend": false, "isSchool": false },
+    { "rank": 7, "name": "Rusty", "xp": 31000, "level": 29, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Tyler", "streak": 21, "change": "same", "league": "Bronze", "title": "Новичок", "tier": "bronze", "isFriend": true, "isSchool": false },
+    { "rank": 8, "name": "NetRunner", "xp": 29500, "level": 28, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria", "streak": 14, "change": "up", "changeAmount": 1, "league": "Bronze", "title": "Скриптер", "tier": "bronze", "isSchool": true },
+    { "rank": 9, "name": "PixelArt", "xp": 28200, "level": 27, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Leo", "streak": 3, "change": "down", "changeAmount": 3, "league": "Bronze", "title": "Дизайнер", "tier": "bronze", "isFriend": false, "isSchool": false },
+    { "rank": 42, "name": "Neo_Coder", "xp": 450, "level": 5, "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix", "streak": 12, "change": "up", "changeAmount": 5, "league": "Diamond", "title": "Кибер-Ниндзя", "tier": "diamond", "isFriend": false, "isSchool": true }
+  ],
+  "friends": [
+    { "id": 1, "name": "Anna_Py", "status": "online", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Anna", "level": 18 },
+    { "id": 2, "name": "Dmitry_Dev", "status": "coding", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Dmitry", "level": 24 },
+    { "id": 3, "name": "Sergey_ML", "status": "offline", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sergey", "level": 45 }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "author": { "name": "Дмитрий К.", "avatar": "https://i.pravatar.cc/150?u=dmitry", "level": 24 },
+      "time": "2 ч. назад",
+      "content": "Ребята, кто работал с FastAPI? Стоит ли переходить с Flask для микросервисов? Интересует производительность и типизация.",
+      "tags": ["FastAPI", "Backend", "Python3"],
+      "likes": 42,
+      "comments": 15,
+      "liked": true,
+      "code": null
+    },
+    {
+      "id": 2,
+      "author": { "name": "Анна С.", "avatar": "https://i.pravatar.cc/150?u=anna", "level": 18 },
+      "time": "5 ч. назад",
+      "content": "Наконец-то разобралась с генераторами списков! Код стал в 3 раза короче. Вот пример того, как я это сделала:",
+      "code": "users = [u.name for u in db.users if u.is_active]\n# Вместо цикла for из 4 строк!",
+      "tags": ["Refactoring", "CleanCode"],
+      "likes": 128,
+      "comments": 8,
+      "liked": false
+    },
+    {
+      "id": 3,
+      "author": { "name": "Сергей В.", "avatar": "https://i.pravatar.cc/150?u=sergey", "level": 45 },
+      "time": "1 д. назад",
+      "content": "Запустил свой первый ML-модель в продакшн! Использовал PyTorch и Docker. Если есть вопросы по деплою — задавайте в комментах.",
+      "tags": ["MachineLearning", "DevOps", "PyTorch"],
+      "likes": 350,
+      "comments": 42,
+      "liked": false,
+      "code": null
+    }
+  ],
+  "achievements": [
+    { 
+        "id": 1, 
+        "title": "Первый Байт", 
+        "description": "Завершите первый урок", 
+        "flavorText": "Даже самый сложный алгоритм начинается с одной строки кода.",
+        "icon": "Code2", 
+        "rarity": "common", 
+        "category": "coding", 
+        "progress": 1, 
+        "maxProgress": 1, 
+        "unlocked": true, 
+        "date": "12.03.2024",
+        "globalRate": 85,
+        "xpReward": 50
+    },
+    { 
+        "id": 2, 
+        "title": "Воин Кода", 
+        "description": "Решите 50 задач", 
+        "flavorText": "Твоя клавиатура дымится, а баги бегут в ужасе.",
+        "icon": "Sword", 
+        "rarity": "rare", 
+        "category": "coding", 
+        "progress": 50, 
+        "maxProgress": 50, 
+        "unlocked": true, 
+        "date": "15.03.2024",
+        "globalRate": 32,
+        "xpReward": 200
+    },
+    { 
+        "id": 3, 
+        "title": "Вечный Огонь", 
+        "description": "Стрик 30 дней подряд", 
+        "flavorText": "Дисциплина — это мост между целью и достижением.",
+        "icon": "Flame", 
+        "rarity": "epic", 
+        "category": "streak", 
+        "progress": 12, 
+        "maxProgress": 30, 
+        "unlocked": false,
+        "globalRate": 5,
+        "xpReward": 500
+    },
+    { 
+        "id": 4, 
+        "title": "Дебаггер 80 lvl", 
+        "description": "Найдите 20 ошибок в коде", 
+        "flavorText": "Ты видишь матрицу. Ты чувствуешь сбои.",
+        "icon": "Bug", 
+        "rarity": "rare", 
+        "category": "coding", 
+        "progress": 12, 
+        "maxProgress": 20, 
+        "unlocked": false,
+        "globalRate": 25,
+        "xpReward": 150
+    },
+    { 
+        "id": 5, 
+        "title": "Архитектор Матрицы", 
+        "description": "Создайте свою первую нейросеть", 
+        "flavorText": "Теперь ты не просто пользователь. Ты — Создатель.",
+        "icon": "Crown", 
+        "rarity": "legendary", 
+        "category": "coding", 
+        "progress": 0, 
+        "maxProgress": 1, 
+        "unlocked": false,
+        "globalRate": 0.8,
+        "xpReward": 2000
+    },
+    { 
+        "id": 6, 
+        "title": "Душа Компании", 
+        "description": "Получите 100 лайков на форуме", 
+        "flavorText": "Твои знания освещают путь другим.",
+        "icon": "Gift", 
+        "rarity": "epic", 
+        "category": "community", 
+        "progress": 45, 
+        "maxProgress": 100, 
+        "unlocked": false,
+        "globalRate": 12,
+        "xpReward": 400
+    },
+    { 
+        "id": 7, 
+        "title": "?? Hidden ??", 
+        "description": "Секретное достижение", 
+        "flavorText": "Его тайну знают лишь избранные.",
+        "icon": "LockKeyhole", 
+        "rarity": "legendary", 
+        "category": "secret", 
+        "progress": 0, 
+        "maxProgress": 1, 
+        "unlocked": false,
+        "globalRate": 0.01,
+        "xpReward": 5000
+    },
+    { 
+        "id": 8, 
+        "title": "Снайпер", 
+        "description": "100% точность в 5 тестах подряд", 
+        "flavorText": "Ни одного промаха. Чистое исполнение.",
+        "icon": "Target", 
+        "rarity": "rare", 
+        "category": "coding", 
+        "progress": 3, 
+        "maxProgress": 5, 
+        "unlocked": false,
+        "globalRate": 18,
+        "xpReward": 250
+    }
+  ],
+  "uiData": {
+    "sidebarNavItems": [
+      { "view": "DASHBOARD", "label": "Лобби", "icon": "LayoutGrid", "mobile": true },
+      { "view": "COURSES", "label": "Карта", "icon": "Map", "mobile": true },
+      { "view": "PRACTICE", "label": "Арена", "icon": "Code", "mobile": false },
+      { "view": "AI_CHAT", "label": "Оракул", "icon": "Bot", "mobile": true },
+      { "view": "PROFILE", "label": "Герой", "icon": "User", "mobile": true },
+      { "view": "LEADERBOARD", "label": "Топ", "icon": "Crown", "mobile": false },
+      { "view": "ACHIEVEMENTS", "label": "Трофеи", "icon": "Trophy", "mobile": false }
+    ],
+    "settings": {
+      "presetAvatars": ["Felix", "Aneka", "Zoe", "Max", "Liam", "Sky", "River", "Jude"],
+      "tabs": [
+        { "id": "profile", "icon": "User", "label": "Профиль" },
+        { "id": "notifications", "icon": "Bell", "label": "Уведомления" },
+        { "id": "billing", "icon": "CreditCard", "label": "Подписка" },
+        { "id": "api", "icon": "Key", "label": "API Ключи" },
+        { "id": "security", "icon": "Shield", "label": "Безопасность" }
+      ],
+      "notificationOptions": [
+        { "label": "Новые квесты и задачи", "enabled": true },
+        { "label": "Ответы ментора", "enabled": true },
+        { "label": "Достижения друзей", "enabled": false },
+        { "label": "Новости обновлений", "enabled": false }
+      ]
+    },
+    "profile": {
+      "location": "Moscow, Cyber City",
+      "github": "@neo_coder",
+      "showcaseTrophies": [
+        { "id": 1, "icon": "Trophy", "rarity": "legendary", "name": "Первый Турнир", "locked": false },
+        { "id": 2, "icon": "Bug", "rarity": "epic", "name": "Охотник", "locked": false },
+        { "id": 3, "icon": "Code", "rarity": "rare", "name": "Чистый Код", "locked": false },
+        { "id": 4, "locked": true },
+        { "id": 5, "locked": true }
+      ]
+    },
+    "community": {
+      "topTags": [
+        { "name": "Python", "count": 1250 },
+        { "name": "Django", "count": 850 },
+        { "name": "MachineLearning", "count": 620 },
+        { "name": "Beginners", "count": 450 },
+        { "name": "Career", "count": 320 }
+      ],
+      "topContributors": [
+        { "id": 1, "name": "User_100", "avatar": "https://i.pravatar.cc/150?u=11", "reputation": 1400 },
+        { "id": 2, "name": "User_101", "avatar": "https://i.pravatar.cc/150?u=12", "reputation": 1300 },
+        { "id": 3, "name": "User_102", "avatar": "https://i.pravatar.cc/150?u=13", "reputation": 1200 }
+      ]
+    },
+    "dashboard": {
+      "dailyQuests": [
+        { "title": "Реши 3 задачи", "reward": "50 XP", "icon": "Zap", "done": true, "color": "text-yellow-400", "link": "PRACTICE" },
+        { "title": "Без ошибок", "reward": "Сундук", "icon": "Gift", "done": false, "color": "text-arcade-primary", "link": "COURSES" },
+        { "title": "Помоги другу", "reward": "20 XP", "icon": "Bot", "done": false, "color": "text-arcade-mentor", "link": "AI_CHAT" }
+      ]
+    },
+    "app": {
+      "notifications": [
+        { "time": "2 мин назад", "text": "🔥 Твой друг Anna_Py завершил главу 5!" },
+        { "time": "1 час назад", "text": "🏆 Ты поднялся в рейтинге: #42" },
+        { "time": "Вчера", "text": "🎁 Награда за стрик: 500 XP" }
+      ],
+      "premium": {
+        "price": "299₽",
+        "period": "/ мес",
+        "benefits": [
+          "Доступ ко всем БОСС-уровням",
+          "Неограниченные подсказки от ИИ",
+          "Уникальная рамка аватара",
+          "x2 XP за все задачи",
+          "Доступ к секретным турнирам"
+        ]
+      }
+    },
+    "aiChat": {
+      "quickActions": [
+        { "label": "Что не так?", "icon": "AlertCircle", "prompt": "Найди ошибку в моем коде." },
+        { "label": "Теория", "icon": "Search", "prompt": "Объясни, как это работает." },
+        { "label": "Подсказка", "icon": "Sparkles", "prompt": "Дай наводку, но не решение." }
+      ],
+      "welcomeMessage": "Системы прогреты. Готов к взлому кода, {name}?",
+      "oracleBadge": "Oracle Lvl. 12",
+      "statusLabel": "ONLINE • LVL 12",
+      "inputPlaceholder": "Задай вопрос ментору...",
+      "responses": {
+        "default": "Интересный запрос. Дай подумать...",
+        "error": "Анализирую твои алгоритмы... Вижу небольшую аномалию в логике! Проверь отступы в 5-й строке.",
+        "hint": "Хмм, попробуй использовать цикл while вместо for здесь. Это сэкономит память.",
+        "noEnergy": "Мои энергоблоки разряжены. Реши пару задач самостоятельно, чтобы зарядить меня!",
+        "theory": "Генераторы — это функции, которые возвращают итератор. Они не хранят все значения в памяти, а генерируют их на лету.",
+        "success": "Идеально! Твой код чист, как слеза робота. Продолжай в том же духе!"
+      }
+    },
+    "aiChatPage": {
+      "abilities": [
+        { "id": "debug", "icon": "Bug", "label": "DEBUG", "color": "text-red-400", "prompt": "Найди ошибку в коде:" },
+        { "id": "learn", "icon": "Database", "label": "THEORY", "color": "text-purple-400", "prompt": "Объясни тему:" },
+        { "id": "optimize", "icon": "Zap", "label": "BOOST", "color": "text-yellow-400", "prompt": "Оптимизируй этот код:" }
+      ],
+      "archiveLabel": "Архив записей (3.2 TB)",
+      "systemUptime": "42:12:05",
+      "version": "V.2.0.4",
+      "inputPlaceholder": "Введите команду или вопрос...",
+      "responses": {
+        "loop": "АНАЛИЗ ЗАВЕРШЕН.\n\nЦикл `while` выполняется, пока условие истинно. Будь осторожен с бесконечными циклами — они могут перегрузить ядро.",
+        "default": "Данные приняты. Обрабатываю запрос через нейросеть... \n\nОтвет сгенерирован."
+      }
+    },
+    "editor": {
+      "learning": {
+        "expectedOutput": "ACCESS GRANTED",
+        "commonErrors": [
+          "Не тот отступ внутри цикла.",
+          "Возврат `ACCESS DENIED` вместо `ACCESS GRANTED`.",
+          "Пропуск вывода проверки портов."
+        ],
+        "miniCheck": "Почему здесь `for`, а не `while`? Потому что мы проходим по фиксированному набору портов: число итераций известно заранее."
+      },
+      "botMessages": {
+        "initial": "Я загрузил данные миссии. Ознакомься с задачами слева.",
+        "running": "Компилирую твое решение...",
+        "error": "Внимание! Код работает, но цель не достигнута. Проверь условие выхода.",
+        "success": "Отлично! Мы внутри. +50 XP"
+      }
+    },
+    "texts": {
+      "header": {
+        "searchPlaceholder": "Найти квест или игрока...",
+        "xpLabel": "XP"
+      },
+      "sidebar": {
+        "logoLine1": "Code",
+        "logoLine2": "Arcade",
+        "soundLabel": "Звуки"
+      },
+      "community": {
+        "title": "Сообщество",
+        "subtitle": "Обсуждайте код, делитесь опытом и находите менторов.",
+        "newPost": "Новый пост",
+        "createPostPlaceholder": "О чем хотите рассказать?",
+        "preview": "Предпросмотр",
+        "popular": "Популярное",
+        "fresh": "Свежее",
+        "filters": "Фильтры",
+        "share": "Поделиться",
+        "searchPlaceholder": "Поиск по обсуждениям...",
+        "tagsTitle": "Популярные темы",
+        "topContributorsTitle": "Топ участников",
+        "levelPrefix": "Уровень",
+        "reputationSuffix": "репутации"
+      },
+      "settings": {
+        "title": "Настройки",
+        "saved": "Изменения сохранены",
+        "randomAvatarTitle": "Случайный аватар",
+        "chooseAvatar": "Выберите аватар",
+        "nickname": "Никнейм",
+        "about": "О себе",
+        "charsLeft": "Осталось символов",
+        "themeTitle": "Тема оформления",
+        "themeValue": "Cyberpunk Dark (Locked)",
+        "save": "Сохранить изменения",
+        "saving": "Сохранение...",
+        "notificationsTitle": "Уведомления",
+        "securityTitle": "Безопасность",
+        "passwordTitle": "Пароль",
+        "passwordChanged": "Последнее изменение: 3 месяца назад",
+        "change": "Изменить",
+        "twofaTitle": "2FA Аутентификация",
+        "twofaHint": "Защитите аккаунт",
+        "enable": "Включить",
+        "dangerTitle": "Опасная зона",
+        "dangerText": "Действия в этой зоне необратимы. Будьте осторожны.",
+        "deleteAccount": "Удалить аккаунт",
+        "deleteAccountHint": "Все данные будут потеряны безвозвратно",
+        "deleteForever": "Удалить навсегда",
+        "toastPasswordChanged": "Переход к смене пароля",
+        "toastTwofaEnabled": "2FA будет включена после подтверждения",
+        "toastDeleteRequested": "Запрос на удаление отправлен"
+      },
+      "profile": {
+        "defaultBio": "Кибер-странник в поисках идеального алгоритма.",
+        "edit": "Редактировать",
+        "add": "Добавить",
+        "message": "Сообщение",
+        "skillsMatrix": "Матрица Навыков",
+        "lastUpdated": "Last Updated: 1h ago",
+        "showcase": "Витрина Трофеев",
+        "schoolClass": "Класс A • Топ 5% Школ",
+        "schoolName": "Cyber_School_1337",
+        "members": "Участников",
+        "totalXp": "Общий XP",
+        "schoolProfile": "Профиль Школы",
+        "friends": "Друзья",
+        "codingStatus": "Пишет код...",
+        "findFriends": "Найти друзей",
+        "toastShared": "Профиль скопирован в буфер обмена",
+        "toastAdded": "Запрос на добавление отправлен",
+        "toastFriendAdded": "Запрос в друзья отправлен",
+        "toastFriendRemoved": "Запрос в друзья отменён",
+        "battleStats": {
+          "streak": "Стрик",
+          "quests": "Квесты",
+          "leagueRank": "Ранг Лиги",
+          "accuracy": "Точность"
+        }
+      },
+      "dashboard": {
+        "greeting": "👋 Привет, {name}! Готов покорять код?",
+        "baseTitle": "Твоя База",
+        "streakLabel": "Дней в огне",
+        "currentMission": "Текущая миссия",
+        "fallbackMissionTitle": "Текущая миссия",
+        "fallbackMissionChapter": "Миссия кампании",
+        "progress": "Прогресс",
+        "start": "Start",
+        "dailyQuests": "Ежедневные Квесты",
+        "stats": "Статистика",
+        "details": "Подробнее",
+        "statsTotalXp": "Всего XP",
+        "statsSolved": "Задач решено",
+        "statsTime": "Время в коде",
+        "hoursSuffix": "ч",
+        "blitzTitle": "Блиц-Турнир",
+        "blitzSubtitle": "Реши 5 задач за 5 минут и получи удвоенный XP!",
+        "blitzStart": "Начать"
+      },
+      "achievements": {
+        "collectorRank": "Ранг Коллекционера",
+        "collectedPrefix": "Собрано",
+        "collectedMiddle": "из",
+        "collectedSuffix": "артефактов",
+        "pointsLabel": "Очки (AP)",
+        "rareLabel": "Редких",
+        "legendaryLabel": "Легенд",
+        "locked": "Locked",
+        "secretMask": "?? ??? ??",
+        "secretTitle": "Засекречено",
+        "secretDescription": "Выполните скрытое условие, чтобы открыть этот артефакт.",
+        "owners": "Владеют",
+        "reward": "Награда",
+        "share": "Похвастаться",
+        "rarity": {
+          "common": "Обычный",
+          "rare": "Редкий",
+          "epic": "Эпический",
+          "legendary": "Легендарный"
+        },
+        "ranks": [
+          { "min": 0, "label": "Новичок" },
+          { "min": 31, "label": "Искатель" },
+          { "min": 61, "label": "Хранитель Байт" },
+          { "min": 91, "label": "Легендарный Архивариус" }
+        ],
+        "stats": {
+          "points": 1250,
+          "rare": 4,
+          "legendary": 0
+        },
+        "filters": [
+          { "id": "all", "label": "Все" },
+          { "id": "coding", "label": "Кодинг" },
+          { "id": "community", "label": "Сообщество" },
+          { "id": "streak", "label": "Стрик" },
+          { "id": "secret", "label": "Скрытые" }
+        ]
+      },
+      "leaderboard": {
+        "titlePrefix": "Арена",
+        "titleHighlight": "Чемпионов",
+        "season": "Сезон 4: Эра Нейросетей",
+        "currentUserSubtitle": "Кибер-ниндзя • Diamond League",
+        "scopes": {
+          "global": "Мир",
+          "friends": "Друзья",
+          "school": "Школа"
+        },
+        "periods": {
+          "all": "За все время",
+          "month": "Этот месяц"
+        },
+        "youBadge": "YOU",
+        "nextRank": "До след. ранга"
+      },
+      "aiChat": {
+        "title": "ОРАКУЛ",
+        "oracleBadge": "Oracle Lvl. 12",
+        "statusLabel": "ONLINE • LVL 12",
+        "inputPlaceholder": "Задай вопрос ментору..."
+      },
+      "aiChatPage": {
+        "neuralHistory": "NEURAL_HISTORY",
+        "systemUptimeLabel": "System Uptime",
+        "syncCenter": "SYNC_CENTER",
+        "processing": "PROCESSING DATA...",
+        "ready": "SYSTEM READY",
+        "responseOutput": "Response Output",
+        "mentorActivated": "ИИ-Ментор Активирован",
+        "safeNotice": "ИИ может допускать ошибки. Проверяйте важную информацию.",
+        "archiveLabel": "Архив записей (3.2 TB)",
+        "systemUptime": "42:12:05",
+        "version": "V.2.0.4",
+        "inputPlaceholder": "Введите команду или вопрос..."
+      },
+      "editor": {
+        "missionTab": "Миссия",
+        "filesTab": "Файлы",
+        "goalsTitle": "Цели",
+        "knowledgeBaseTitle": "База Знаний",
+        "commonErrorsTitle": "Частые ошибки",
+        "miniCheckTitle": "Мини-чек",
+        "askMentor": "Спросить Ментора",
+        "run": "RUN",
+        "successTitle": "System Hacked!",
+        "successXp": "+100 XP",
+        "terminalTitle": "Terminal Output",
+        "expectedOutputLabel": "Ожидаемый вывод",
+        "botMessages": {
+          "initial": "Я загрузил данные миссии. Ознакомься с задачами слева.",
+          "running": "Компилирую твое решение...",
+          "error": "Внимание! Код работает, но цель не достигнута. Проверь условие выхода.",
+          "success": "Отлично! Мы внутри. +50 XP"
+        },
+        "learning": {
+          "expectedOutput": "ACCESS GRANTED",
+          "miniCheck": "Почему здесь `for`, а не `while`? Потому что мы проходим по фиксированному набору портов: число итераций известно заранее."
+        }
+      },
+      "courses": {
+        "backToLobby": "Лобби",
+        "mapTitle": "Карта Кампании",
+        "season": "Сезон 1: Кибер-Панк",
+        "currentLevel": "Твой уровень",
+        "bossLabel": "BOSS",
+        "chapterPrefix": "Глава",
+        "briefing": "Брифинг миссии",
+        "reward": "Награда",
+        "difficulty": "Сложность",
+        "acceptMission": "Принять миссию"
+      },
+      "app": {
+        "notificationsTitle": "Уведомления",
+        "markAllRead": "Пометить все как прочитанные",
+        "premiumStatus": "Pro Status",
+        "premiumTitle": "Стань Легендой",
+        "premiumSubtitle": "Разблокируй полный потенциал и получи доступ к элитным миссиям.",
+        "premiumBenefitsTitle": "Преимущества PRO",
+        "activatePro": "Активировать PRO",
+        "proActivated": "PRO активирован"
+      }
+    }
+  },
+  "missions": [
+      {
+          "id": "mission_04_hack",
+          "title": "Взлом Протокола",
+          "chapter": "Глава 3: Циклы Хаоса",
+          "description": "Система безопасности 'Argus' меняет порты доступа каждую секунду. Нам нужно написать скрипт, который проверит список портов и найдет открытый.",
+          "files": [
+            { "id": "1", "name": "main_exploit.py", "type": "file", "language": "python", "content": "def bypass_firewall(ip_address):\n    # МИССИЯ: Напиши цикл для перебора портов\n    ports = [80, 443, 8080]\n    \n    # Твой код здесь:\n    \n        \n    return \"ACCESS DENIED\"" },
+            { "id": "2", "name": "config.json", "type": "file", "language": "json", "content": "{\n  \"target\": \"192.168.1.105\",\n  \"port\": 8080,\n  \"timeout\": 5000\n}" }
+          ],
+          "objectives": [
+            { "id": 1, "text": "Создать список `ports`", "completed": true },
+            { "id": 2, "text": "Написать цикл `for`", "completed": false },
+            { "id": 3, "text": "Вывести сообщение о проверке", "completed": false },
+            { "id": 4, "text": "Вернуть 'ACCESS GRANTED'", "completed": false }
+          ],
+          "theory": {
+             "title": "Справка: Цикл For",
+             "content": "Цикл `for` позволяет пройтись по каждому элементу списка.\n\nСинтаксис:\n```python\nitems = [1, 2, 3]\nfor item in items:\n    print(item)\n```\nВ каждой итерации переменная `item` принимает значение следующего элемента списка.",
+             "hint": "Используй `for port in ports:` для перебора."
+          }
+      }
+  ],
+  "logs": [
+      { "id": "1", "code": "SYS_INIT", "status": "success", "msg": "Connection established", "time": "10:42:05" },
+      { "id": "2", "code": "MEM_OPT", "status": "warning", "msg": "Garbage collection pending", "time": "10:45:12" },
+      { "id": "3", "code": "NET_PING", "status": "success", "msg": "Latency: 12ms", "time": "10:48:30" },
+      { "id": "4", "code": "ERR_404", "status": "error", "msg": "Module not found", "time": "11:02:01" }
+  ]
+}

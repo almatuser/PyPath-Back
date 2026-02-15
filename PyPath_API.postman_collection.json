@@ -1,0 +1,506 @@
+{
+  "info": {
+    "name": "PyPath API Collection",
+    "description": "Коллекция запросов для PyPath Learning Platform API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "pypath-api"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{auth_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/currentUser",
+              "host": ["{{base_url}}"],
+              "path": ["currentUser"]
+            },
+            "description": "Получить информацию о текущем авторизованном пользователе"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Current User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Neo_Coder_Updated\",\n  \"bio\": \"Новая крутая биография\",\n  \"settings\": {\n    \"theme\": \"dark\",\n    \"notifications\": true,\n    \"sound\": false\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/currentUser",
+              "host": ["{{base_url}}"],
+              "path": ["currentUser"]
+            },
+            "description": "Обновить профиль текущего пользователя"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/stats",
+              "host": ["{{base_url}}"],
+              "path": ["stats"]
+            },
+            "description": "Получить статистику пользователя: XP, решенные задачи, время в коде"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Activity",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/activity",
+              "host": ["{{base_url}}"],
+              "path": ["activity"]
+            },
+            "description": "Получить активность по дням недели"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Skills",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/skills",
+              "host": ["{{base_url}}"],
+              "path": ["skills"]
+            },
+            "description": "Получить радарную диаграмму навыков пользователя"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Courses",
+      "item": [
+        {
+          "name": "Get All Courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/courses",
+              "host": ["{{base_url}}"],
+              "path": ["courses"]
+            },
+            "description": "Получить список всех доступных курсов"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Course By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/courses/1",
+              "host": ["{{base_url}}"],
+              "path": ["courses", "1"]
+            },
+            "description": "Получить детальную информацию о конкретном курсе"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Leaderboard",
+      "item": [
+        {
+          "name": "Get Global Leaderboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/leaderboard?scope=global&period=all",
+              "host": ["{{base_url}}"],
+              "path": ["leaderboard"],
+              "query": [
+                {
+                  "key": "scope",
+                  "value": "global"
+                },
+                {
+                  "key": "period",
+                  "value": "all"
+                }
+              ]
+            },
+            "description": "Получить глобальную таблицу лидеров"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Friends Leaderboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/leaderboard?scope=friends&period=month",
+              "host": ["{{base_url}}"],
+              "path": ["leaderboard"],
+              "query": [
+                {
+                  "key": "scope",
+                  "value": "friends"
+                },
+                {
+                  "key": "period",
+                  "value": "month"
+                }
+              ]
+            },
+            "description": "Получить таблицу лидеров среди друзей за месяц"
+          },
+          "response": []
+        },
+        {
+          "name": "Get School Leaderboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/leaderboard?scope=school",
+              "host": ["{{base_url}}"],
+              "path": ["leaderboard"],
+              "query": [
+                {
+                  "key": "scope",
+                  "value": "school"
+                }
+              ]
+            },
+            "description": "Получить таблицу лидеров школы"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Community",
+      "item": [
+        {
+          "name": "Get Friends",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/friends",
+              "host": ["{{base_url}}"],
+              "path": ["friends"]
+            },
+            "description": "Получить список друзей"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Posts - Popular",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/posts?sort=popular",
+              "host": ["{{base_url}}"],
+              "path": ["posts"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "popular"
+                }
+              ]
+            },
+            "description": "Получить популярные посты"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Posts - Fresh",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/posts?sort=fresh",
+              "host": ["{{base_url}}"],
+              "path": ["posts"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "fresh"
+                }
+              ]
+            },
+            "description": "Получить свежие посты"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Posts By Tag",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/posts?tag=Python",
+              "host": ["{{base_url}}"],
+              "path": ["posts"],
+              "query": [
+                {
+                  "key": "tag",
+                  "value": "Python"
+                }
+              ]
+            },
+            "description": "Получить посты с определенным тегом"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"Сегодня изучил декораторы в Python! Невероятно мощная фича.\",\n  \"code\": \"@timer\\ndef my_function():\\n    return sum(range(1000000))\",\n  \"tags\": [\"Python\", \"Decorators\", \"Learning\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/posts",
+              "host": ["{{base_url}}"],
+              "path": ["posts"]
+            },
+            "description": "Создать новый пост в сообществе"
+          },
+          "response": []
+        },
+        {
+          "name": "Like Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/posts/1/like",
+              "host": ["{{base_url}}"],
+              "path": ["posts", "1", "like"]
+            },
+            "description": "Лайкнуть пост"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Achievements",
+      "item": [
+        {
+          "name": "Get All Achievements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/achievements",
+              "host": ["{{base_url}}"],
+              "path": ["achievements"]
+            },
+            "description": "Получить все достижения"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Coding Achievements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/achievements?category=coding",
+              "host": ["{{base_url}}"],
+              "path": ["achievements"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "coding"
+                }
+              ]
+            },
+            "description": "Получить достижения категории coding"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Streak Achievements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/achievements?category=streak",
+              "host": ["{{base_url}}"],
+              "path": ["achievements"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "streak"
+                }
+              ]
+            },
+            "description": "Получить достижения за стрики"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Secret Achievements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/achievements?category=secret",
+              "host": ["{{base_url}}"],
+              "path": ["achievements"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "secret"
+                }
+              ]
+            },
+            "description": "Получить секретные достижения"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Missions",
+      "item": [
+        {
+          "name": "Get All Missions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/missions",
+              "host": ["{{base_url}}"],
+              "path": ["missions"]
+            },
+            "description": "Получить список всех миссий"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Mission By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/missions/mission_04_hack",
+              "host": ["{{base_url}}"],
+              "path": ["missions", "mission_04_hack"]
+            },
+            "description": "Получить детали конкретной миссии"
+          },
+          "response": []
+        },
+        {
+          "name": "Submit Mission Solution",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"def bypass_firewall(ip_address):\\n    ports = [80, 443, 8080]\\n    for port in ports:\\n        print(f'Checking port {port}...')\\n    return 'ACCESS GRANTED'\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/missions/mission_04_hack/submit",
+              "host": ["{{base_url}}"],
+              "path": ["missions", "mission_04_hack", "submit"]
+            },
+            "description": "Отправить решение миссии на проверку"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "System",
+      "item": [
+        {
+          "name": "Get UI Data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/uiData",
+              "host": ["{{base_url}}"],
+              "path": ["uiData"]
+            },
+            "description": "Получить конфигурацию UI и локализацию"
+          },
+          "response": []
+        },
+        {
+          "name": "Get System Logs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/logs",
+              "host": ["{{base_url}}"],
+              "path": ["logs"]
+            },
+            "description": "Получить системные логи"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

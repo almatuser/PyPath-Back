@@ -1,0 +1,1179 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "PyPath AI Learning Platform API",
+    "description": "API для образовательной платформы PyPath - геймифицированного обучения программированию на Python с элементами киберпанк-эстетики. Система включает курсы, достижения, таблицу лидеров, AI-ментора и социальные функции.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "PyPath Support",
+      "email": "support@pypath.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Development server"
+    },
+    {
+      "url": "https://api.pypath.com",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Операции с пользователями и профилями"
+    },
+    {
+      "name": "Courses",
+      "description": "Управление курсами и обучающими материалами"
+    },
+    {
+      "name": "Achievements",
+      "description": "Система достижений и трофеев"
+    },
+    {
+      "name": "Leaderboard",
+      "description": "Таблица лидеров и рейтинги"
+    },
+    {
+      "name": "Community",
+      "description": "Социальные функции и форум"
+    },
+    {
+      "name": "Missions",
+      "description": "Игровые миссии и задания"
+    },
+    {
+      "name": "System",
+      "description": "Системная информация и настройки UI"
+    }
+  ],
+  "paths": {
+    "/currentUser": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Получить информацию о текущем пользователе",
+        "description": "Возвращает полную информацию о текущем авторизованном пользователе включая профиль, уровень, XP и настройки",
+        "operationId": "getCurrentUser",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Не авторизован"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Users"],
+        "summary": "Обновить профиль текущего пользователя",
+        "operationId": "updateCurrentUser",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Профиль успешно обновлен",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Получить статистику пользователя",
+        "description": "Возвращает общую статистику: XP, решенные задачи, время в коде, точность",
+        "operationId": "getUserStats",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stats"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/activity": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Получить активность пользователя по дням",
+        "description": "Возвращает XP заработанный по дням недели",
+        "operationId": "getUserActivity",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActivityDay"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/skills": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Получить навыки пользователя",
+        "description": "Возвращает радарную диаграмму навыков",
+        "operationId": "getUserSkills",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Skill"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/courses": {
+      "get": {
+        "tags": ["Courses"],
+        "summary": "Получить список всех курсов",
+        "description": "Возвращает все доступные курсы (главы) с информацией о прогрессе",
+        "operationId": "getCourses",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Course"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/courses/{id}": {
+      "get": {
+        "tags": ["Courses"],
+        "summary": "Получить информацию о конкретном курсе",
+        "operationId": "getCourseById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID курса"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Курс не найден"
+          }
+        }
+      }
+    },
+    "/leaderboard": {
+      "get": {
+        "tags": ["Leaderboard"],
+        "summary": "Получить таблицу лидеров",
+        "description": "Возвращает глобальную таблицу лидеров",
+        "operationId": "getLeaderboard",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["global", "friends", "school"],
+              "default": "global"
+            },
+            "description": "Область видимости таблицы лидеров"
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["all", "month"],
+              "default": "all"
+            },
+            "description": "Временной период"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaderboardEntry"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/friends": {
+      "get": {
+        "tags": ["Community"],
+        "summary": "Получить список друзей",
+        "description": "Возвращает список друзей пользователя",
+        "operationId": "getFriends",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Friend"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts": {
+      "get": {
+        "tags": ["Community"],
+        "summary": "Получить посты сообщества",
+        "description": "Возвращает посты из форума сообщества",
+        "operationId": "getPosts",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["popular", "fresh"],
+              "default": "popular"
+            },
+            "description": "Сортировка постов"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Фильтр по тегу"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Post"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Community"],
+        "summary": "Создать новый пост",
+        "operationId": "createPost",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Пост создан",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts/{id}/like": {
+      "post": {
+        "tags": ["Community"],
+        "summary": "Лайкнуть пост",
+        "operationId": "likePost",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Лайк добавлен"
+          }
+        }
+      }
+    },
+    "/achievements": {
+      "get": {
+        "tags": ["Achievements"],
+        "summary": "Получить все достижения",
+        "description": "Возвращает список всех достижений с прогрессом",
+        "operationId": "getAchievements",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["all", "coding", "community", "streak", "secret"]
+            },
+            "description": "Фильтр по категории"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Achievement"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/missions": {
+      "get": {
+        "tags": ["Missions"],
+        "summary": "Получить список миссий",
+        "description": "Возвращает все доступные игровые миссии",
+        "operationId": "getMissions",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Mission"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/missions/{id}": {
+      "get": {
+        "tags": ["Missions"],
+        "summary": "Получить детали миссии",
+        "operationId": "getMissionById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mission"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/missions/{id}/submit": {
+      "post": {
+        "tags": ["Missions"],
+        "summary": "Отправить решение миссии",
+        "operationId": "submitMission",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "description": "Код решения"
+                  }
+                },
+                "required": ["code"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Решение проверено",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "xpEarned": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/uiData": {
+      "get": {
+        "tags": ["System"],
+        "summary": "Получить данные для UI",
+        "description": "Возвращает конфигурацию UI, тексты локализации и настройки интерфейса",
+        "operationId": "getUIData",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UIData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logs": {
+      "get": {
+        "tags": ["System"],
+        "summary": "Получить системные логи",
+        "description": "Возвращает системные логи и уведомления",
+        "operationId": "getLogs",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Log"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "u_1337"
+          },
+          "name": {
+            "type": "string",
+            "example": "Neo_Coder"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "neo@matrix.com"
+          },
+          "fullName": {
+            "type": "string",
+            "example": "Thomas Anderson"
+          },
+          "avatar": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+          },
+          "bio": {
+            "type": "string",
+            "example": "Код — это поэзия, написанная логикой."
+          },
+          "level": {
+            "type": "string",
+            "example": "Кибер-ниндзя"
+          },
+          "levelNum": {
+            "type": "integer",
+            "example": 5
+          },
+          "xp": {
+            "type": "integer",
+            "example": 450
+          },
+          "maxXp": {
+            "type": "integer",
+            "example": 1000
+          },
+          "streak": {
+            "type": "integer",
+            "description": "Количество дней подряд",
+            "example": 12
+          },
+          "rank": {
+            "type": "integer",
+            "example": 42
+          },
+          "league": {
+            "type": "string",
+            "enum": ["Bronze", "Silver", "Gold", "Platinum", "Diamond"],
+            "example": "Diamond"
+          },
+          "settings": {
+            "type": "object",
+            "properties": {
+              "theme": {
+                "type": "string",
+                "enum": ["dark", "light"],
+                "default": "dark"
+              },
+              "notifications": {
+                "type": "boolean",
+                "default": true
+              },
+              "sound": {
+                "type": "boolean",
+                "default": true
+              }
+            }
+          }
+        }
+      },
+      "UserUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "bio": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "settings": {
+            "type": "object",
+            "properties": {
+              "theme": {
+                "type": "string"
+              },
+              "notifications": {
+                "type": "boolean"
+              },
+              "sound": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "Stats": {
+        "type": "object",
+        "properties": {
+          "totalXp": {
+            "type": "integer",
+            "example": 12450
+          },
+          "problemsSolved": {
+            "type": "integer",
+            "example": 42
+          },
+          "codingHours": {
+            "type": "number",
+            "format": "float",
+            "example": 14.5
+          },
+          "accuracy": {
+            "type": "integer",
+            "description": "Процент точности",
+            "minimum": 0,
+            "maximum": 100,
+            "example": 92
+          }
+        }
+      },
+      "ActivityDay": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string",
+            "description": "День недели",
+            "example": "Пн"
+          },
+          "xp": {
+            "type": "integer",
+            "example": 400
+          }
+        }
+      },
+      "Skill": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "example": "Алгоритмы"
+          },
+          "score": {
+            "type": "integer",
+            "example": 120
+          },
+          "fullMark": {
+            "type": "integer",
+            "example": 150
+          }
+        }
+      },
+      "Course": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "Глава 1: Взлом Терминала"
+          },
+          "description": {
+            "type": "string",
+            "example": "Система защиты ослабла. Инициализируй переменные."
+          },
+          "progress": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Прогресс в процентах",
+            "example": 100
+          },
+          "totalLessons": {
+            "type": "integer",
+            "example": 5
+          },
+          "icon": {
+            "type": "string",
+            "description": "Название иконки Lucide",
+            "example": "Terminal"
+          },
+          "color": {
+            "type": "string",
+            "description": "CSS класс цвета",
+            "example": "text-arcade-success"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": ["Вводная", "Легко", "Средне", "Сложно", "Босс", "Легенда"],
+            "example": "Вводная"
+          },
+          "stars": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3,
+            "example": 3
+          },
+          "isBoss": {
+            "type": "boolean",
+            "example": false
+          },
+          "locked": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "LeaderboardEntry": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "CyberNinja"
+          },
+          "xp": {
+            "type": "integer",
+            "example": 45200
+          },
+          "level": {
+            "type": "integer",
+            "example": 42
+          },
+          "avatar": {
+            "type": "string",
+            "format": "uri"
+          },
+          "streak": {
+            "type": "integer",
+            "example": 150
+          },
+          "change": {
+            "type": "string",
+            "enum": ["up", "down", "same"],
+            "example": "up"
+          },
+          "changeAmount": {
+            "type": "integer",
+            "example": 2
+          },
+          "league": {
+            "type": "string",
+            "example": "Diamond"
+          },
+          "title": {
+            "type": "string",
+            "example": "Гроза Циклов"
+          },
+          "tier": {
+            "type": "string",
+            "enum": ["bronze", "silver", "gold", "platinum", "diamond"],
+            "example": "diamond"
+          },
+          "isFriend": {
+            "type": "boolean",
+            "example": false
+          },
+          "isSchool": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "Friend": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Anna_Py"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["online", "offline", "coding"],
+            "example": "online"
+          },
+          "avatar": {
+            "type": "string",
+            "format": "uri"
+          },
+          "level": {
+            "type": "integer",
+            "example": 18
+          }
+        }
+      },
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "author": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string",
+                "format": "uri"
+              },
+              "level": {
+                "type": "integer"
+              }
+            }
+          },
+          "time": {
+            "type": "string",
+            "example": "2 ч. назад"
+          },
+          "content": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true,
+            "description": "Фрагмент кода в посте"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["FastAPI", "Backend", "Python3"]
+          },
+          "likes": {
+            "type": "integer",
+            "example": 42
+          },
+          "comments": {
+            "type": "integer",
+            "example": 15
+          },
+          "liked": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "PostCreate": {
+        "type": "object",
+        "required": ["content"],
+        "properties": {
+          "content": {
+            "type": "string",
+            "minLength": 10
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5
+          }
+        }
+      },
+      "Achievement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "Первый Байт"
+          },
+          "description": {
+            "type": "string",
+            "example": "Завершите первый урок"
+          },
+          "flavorText": {
+            "type": "string",
+            "description": "Эпическое описание достижения",
+            "example": "Даже самый сложный алгоритм начинается с одной строки кода."
+          },
+          "icon": {
+            "type": "string",
+            "description": "Название иконки Lucide",
+            "example": "Code2"
+          },
+          "rarity": {
+            "type": "string",
+            "enum": ["common", "rare", "epic", "legendary"],
+            "example": "common"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["coding", "community", "streak", "secret"],
+            "example": "coding"
+          },
+          "progress": {
+            "type": "integer",
+            "example": 1
+          },
+          "maxProgress": {
+            "type": "integer",
+            "example": 1
+          },
+          "unlocked": {
+            "type": "boolean",
+            "example": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "12.03.2024"
+          },
+          "globalRate": {
+            "type": "number",
+            "format": "float",
+            "description": "Процент игроков, получивших достижение",
+            "example": 85.0
+          },
+          "xpReward": {
+            "type": "integer",
+            "example": 50
+          }
+        }
+      },
+      "Mission": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "mission_04_hack"
+          },
+          "title": {
+            "type": "string",
+            "example": "Взлом Протокола"
+          },
+          "chapter": {
+            "type": "string",
+            "example": "Глава 3: Циклы Хаоса"
+          },
+          "description": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "objectives": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "theory": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              },
+              "hint": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "UIData": {
+        "type": "object",
+        "description": "Конфигурация UI и локализация",
+        "properties": {
+          "sidebarNavItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "view": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "icon": {
+                  "type": "string"
+                },
+                "mobile": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "settings": {
+            "type": "object"
+          },
+          "texts": {
+            "type": "object",
+            "description": "Локализованные тексты для всех компонентов"
+          }
+        }
+      },
+      "Log": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1"
+          },
+          "code": {
+            "type": "string",
+            "example": "SYS_INIT"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["success", "warning", "error"],
+            "example": "success"
+          },
+          "msg": {
+            "type": "string",
+            "example": "Connection established"
+          },
+          "time": {
+            "type": "string",
+            "example": "10:42:05"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
