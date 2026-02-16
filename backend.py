@@ -81,7 +81,7 @@ class PyPathHandler(BaseHTTPRequestHandler):
         if path == "/achievements":
             achievements = DATA["achievements"]
             category = query.get("category", [None])[0]
-            if category:
+            if category and category.lower() != "all":
                 category_lc = category.lower()
                 achievements = [a for a in achievements if str(a.get("category", "")).lower() == category_lc]
             return _json_response(self, 200, achievements)
