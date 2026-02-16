@@ -57,6 +57,26 @@ class BackendAPITestCase(unittest.TestCase):
         self.assertEqual(status, 400)
         self.assertIn("content", payload["error"])
 
+    def test_get_achievements_category_all_returns_everything(self):
+        status, all_items = self.request("GET", "/achievements")
+        self.assertEqual(status, 200)
+        status, filtered = self.request("GET", "/achievements?category=all")
+        self.assertEqual(status, 200)
+        self.assertEqual(len(filtered), len(all_items))
+
+    def test_get_leaderboard_with_scope_friends(self):
+        status, all_items = self.request("GET", "/leaderboard")
+        self.assertEqual(status, 200)
+        status, payload = self.request("GET", "/leaderboard?scope=friends")
+        self.assertEqual(status, 200)
+        self.assertTrue(all(item.get("isFriend") for item in payload))
+        self.assertLessEqual(len(payload), len(all_items))
+
+    def test_get_leaderboard_with_period(self):
+        status, payload = self.request("GET", "/leaderboard?period=month")
+        self.assertEqual(status, 200)
+        self.assertIsInstance(payload, list)
+
     def test_submit_mission(self):
         status, missions = self.request("GET", "/missions")
         self.assertEqual(status, 200)
